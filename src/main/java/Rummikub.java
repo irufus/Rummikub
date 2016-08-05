@@ -80,7 +80,7 @@ public class Rummikub extends JFrame
 	* checks if a tile is currently being placed on the board
 	* @return <code>boolean</code> whether there is a tile being placed or not
 	*/
-	public static boolean adding()
+	static boolean adding()
 	{
 		return GAME_FRAME.addTile;
 	}
@@ -89,7 +89,7 @@ public class Rummikub extends JFrame
 	* Determines the <code>Rack</code> belonging to the human player
 	* @return the <code>Rack</code> object of the player
 	*/
-	public static Rack getPlayersRack()
+	static Rack getPlayersRack()
 	{
 		return GAME_FRAME.players_rack;
 	}
@@ -98,7 +98,7 @@ public class Rummikub extends JFrame
 	* Determines the <code>Rack</code> corresponding to the pool of tiles
 	* @return the <code>Rack</code> object of the pool
 	*/
-	public static Rack getPool()
+	static Rack getPool()
 	{
 		return GAME_FRAME.pool;
 	}
@@ -116,7 +116,7 @@ public class Rummikub extends JFrame
 	* set whether a tile is being added or not
 	* @param isAdding whether a tile is being added or not
 	*/
-	public static void setAdding(boolean isAdding)
+	static void setAdding(boolean isAdding)
 	{
 		GAME_FRAME.setInternalAdd(isAdding);
 	}
@@ -132,7 +132,7 @@ public class Rummikub extends JFrame
 	* @param tileIndex the index of the tile on the player's <code>Rack</code> to put down
 	* @param who <code>String</code> ("Comp" if computer) is placing the tile
 	*/
-	public static void putTileDown(int tileIndex, String who)
+	static void putTileDown(int tileIndex, String who)
 	{
 		GAME_FRAME.internalPutTile(tileIndex, who);
 	}
@@ -163,7 +163,7 @@ public class Rummikub extends JFrame
 	* outputs a message to the user in the info area of the <code>InfoPanel</code>
 	* @param infoStr the <code>String</code> to be outputted
 	*/
-	public static void tellUser(String infoStr)
+	static void tellUser(String infoStr)
 	{
 		GAME_FRAME.infoPanel.output(infoStr);
 	}
@@ -184,7 +184,7 @@ public class Rummikub extends JFrame
 	* displays the players tiles on the <code>UserPanel</code> associated with it
 	* @param playersRack the <code>Rack</code> corresponding to the tiles in the player's hand
 	*/
-	public void showPlayersTiles(Rack playersRack)
+	void showPlayersTiles(Rack playersRack)
 	{
 		playersRack.display(userPane.getPanel());
 	}

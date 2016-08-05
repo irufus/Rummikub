@@ -15,7 +15,7 @@ public class UserPanel extends JPanel
 
 	/**
 	* UserPanel Constructor
-	* @param the player's rack <code>Rack</code>
+	* @param playRack the player's rack <code>Rack</code>
 	*/
 	public UserPanel(Rack playRack)
 	{
