@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.File;
 import javax.swing.*;
 
 /**
@@ -38,7 +39,14 @@ public class Tile
 		if(pathSep.equals("\\"))
 			pathSep = "\\\\";
 
-		String ImagePath = "pics" + pathSep + this.getColour() + faceValue + ".gif";
+		ClassLoader cl = getClass().getClassLoader();
+		String ImagePath = this.getColour() + faceValue + ".gif";
+		try{
+			ImagePath = cl.getResource(ImagePath).getFile();
+		} catch(NullPointerException nex){
+			System.out.println("WARNING: " + ImagePath + " not found.");
+		}
+
 		im = new ImageIcon(ImagePath);
 	}
 
