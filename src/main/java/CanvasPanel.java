@@ -30,7 +30,9 @@ public class CanvasPanel extends JPanel
 	*/
 	public CanvasPanel(PlayingCanvasPane parent)
 	{
+		//todo use Tile loader
 		super();
+		ClassLoader cl = getClass().getClassLoader();
 		parentPane = parent;
 		setLayout(new FlowLayout());
 		setBackground(new Color(6, 152, 6));
@@ -41,14 +43,12 @@ public class CanvasPanel extends JPanel
 		addMouseMotionListener(boardHandler);
 		addMouseListener(boardHandler);
 
-		pathSep = System.getProperty("file.separator");
-
-		if(pathSep.equals("\\"))
-		{
-			pathSep = "\\\\";
+		try{
+			blankImage = new ImageIcon(cl.getResource("blank.gif").getFile()).getImage();
+		} catch(NullPointerException nex){
+			System.out.println("WARNING: blank.gif not found.");
+			blankImage = new ImageIcon().getImage();
 		}
-
-		blankImage = (new ImageIcon("pics" + pathSep + "blank.gif")).getImage();
 
 		for(int i=0; i<boardHeight; i++)
 		{

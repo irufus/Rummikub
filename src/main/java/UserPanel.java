@@ -19,15 +19,17 @@ public class UserPanel extends JPanel
 	*/
 	public UserPanel(Rack playRack)
 	{
+		//todo use tile loader
 		super();
+		ClassLoader cl = getClass().getClassLoader();
 		playersRack = playRack;
-
-		pathSep = System.getProperty("file.separator");
-		if(pathSep.equals("\\"))
-		{
-			pathSep = "\\\\";
+		try{
+			blankImage = new ImageIcon(cl.getResource("blank.gif").getFile()).getImage();
+		} catch(NullPointerException nex){
+			System.out.println("Warning: blank.gif not found.");
+			blankImage = new ImageIcon().getImage();
 		}
-		blankImage = (new ImageIcon("pics" + pathSep + "blank.gif")).getImage();
+
 	}
 
 	/*
